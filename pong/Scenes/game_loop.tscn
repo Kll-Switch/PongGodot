@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dxs3ywqj732wa"]
+
+[ext_resource type="PackedScene" uid="uid://di2ph1sirks4" path="res://Scenes/player_1.tscn" id="1_yw6yy"]
+[ext_resource type="PackedScene" uid="uid://b3akymkqy5rpm" path="res://Scenes/player_2.tscn" id="2_wcolm"]
+[ext_resource type="PackedScene" uid="uid://bkgsgplmdrdk4" path="res://Scenes/ball.tscn" id="3_o1o31"]
+
+[sub_resource type="Environment" id="Environment_wcolm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcolm"]
+size = Vector2(658, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1o31"]
+size = Vector2(651, 20)
+
+[node name="Gme_Loop" type="Node2D" unique_id=247193742]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=984949998]
+environment = SubResource("Environment_wcolm")
+
+[node name="Player_1" parent="." unique_id=1270147127 instance=ExtResource("1_yw6yy")]
+position = Vector2(585, 528)
+
+[node name="Player_2" parent="." unique_id=792697503 instance=ExtResource("2_wcolm")]
+position = Vector2(588, 96)
+
+[node name="Ball" parent="." unique_id=278046812 instance=ExtResource("3_o1o31")]
+position = Vector2(583, 288)
+
+[node name="Left" type="StaticBody2D" parent="." unique_id=467570038]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1084784813 groups=["object"]]
+position = Vector2(-1.3943933e-05, 319)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_wcolm")
+
+[node name="Right" type="StaticBody2D" parent="." unique_id=682312115]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=1402080270 groups=["object"]]
+position = Vector2(1153, 315.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_o1o31")
